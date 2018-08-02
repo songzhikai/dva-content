@@ -1,5 +1,18 @@
 ul li{
-  list-style-type:none;
+  list-style: none;  margin:0; padding:0;
+}
+body :global(.ant-menu-sub.ant-menu-inline) {
+  background-color: #1d233d;
+}
+body :global(.ant-menu-submenu .ant-menu) {
+  background-color: #1d233d;
+}
+.leftSiderStyle, .menuStyle, .subMenuStyle{
+  background-color: #1d233d;
+}
+.menuLeafStyle, .menuParentStyle{
+  color: #aab1cb;
+  font-size: 13px;
 }
 .headerStyle{
   background-color: #f5f7fa;

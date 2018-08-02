@@ -1,95 +1,50 @@
-const menuObj = {
-  menus: [
-    {
+export const menus = [{
       menuName: "海报",
+      key: 'poster',
       sub:[
         {
           menuName:"海报管理",
-          path:"/poster/manager"
+          path:"/cc/manager/poster",
+          key: 'posterManager',
         },
         {
           menuName:"认领海报管理",
-          path:"/poster/claimManager"
+          path:"/cc/manager/claimPoster",
+          key: 'claimPosterManager'
         },
         {
           menuName:"海报模板管理",
-          path:"/posterTemplate/manager"
+          path:"/cc/manager/posterTemplate",
+          key:'posterTemplateManager'
         },
-
-
       ]
     },
     {
       menuName: "商品管理",
+      key: 'productManager',
       sub:[
         {
-          menuName:"商品列表-客户经理",
-          path:"/product/saleManager"
-        },
-        {
-          menuName:"商品列表-运营管理",
-          path:"/product/manager"
-        },
-        {
-          menuName:"商品分组",
-          path:"/product/category"
-        },
-        {
-          menuName:"商品同步",
-          path:"/product/synchronize"
-        },
-        {
           menuName: "商品详情-模板管理",
-          path:"/product/detailTemplateManager"
+          path:"/cc/manager/productDetailTemplate",
+          key: 'productDetailManager',
         },
         {
           menuName: "商品表单-模板管理",
-          path:"/product/formTemplateManager"
+          path:"/cc/manager/productFormTemplate",
+          key: 'productFormManager'
         },
 
       ]
     },
 
-    {
-      menuName: "二维码管理",
-      sub:[
-        {
-          menuName:"模板管理",
-          path:"/qrcode/template/list"
-        },{
-          menuName:"认领模板管理",
-          path:"/qrcode/template/claimManager"
-        },
-        {
-          menuName:"二维码查询",
-          path:"/qrcode/qrcode/list"
-        }/*,
-        {
-          menuName:"统计分析",
-          path:"/qrcode/statics"
-        },
-        {
-          menuName:"统计分析-二维码扫描统计",
-          path:"/qrcode/staticsScanning"
-        },
-        {
-          menuName:"统计分析-接口调用统计",
-          path:"/qrcode/staticsInterface"
-        }*/
-      ]
-    },
     {
       menuName: "页面管理",
-      path:"/page/manager"
+      path:"/cc/manager/page",
+      key: 'pageManager'
     },
     {
       menuName: "资源管理",
-      path:"/ResourcesManager"
+      path:"/cc/manager/resource",
+      key: 'resourceManager'
     },
-    {
-      menuName: "我的资源",
-      path:"/UserResources"
-    }
-  ]
-}
-export default menuObj
+]

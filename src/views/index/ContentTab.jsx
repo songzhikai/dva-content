@@ -7,6 +7,7 @@ import PCBar from "../../components/layout/pc_bar";
 import ImgBroadcast from "../../components/pages/img_broadcast";
 import styles from './ViewsIndex.css';
 import {connect} from 'dva';
+import Routes from '../../routes/all';
 
 const { Header, Content, Footer, Sider } = Layout;
 const SubMenu = Menu.SubMenu;
@@ -66,7 +67,8 @@ class ContentTab extends React.Component {
         type="editable-card"
         onEdit={this.onEdit}
       >
-        {this.state.panes.map(pane => <TabPane tab={pane.title} key={pane.key} closable={pane.closable}>{pane.content}</TabPane>)}
+        <Routes/>
+        {/*{this.state.panes.map(pane => <TabPane tab={pane.title} key={pane.key} closable={pane.closable}>{pane.content}</TabPane>)}*/}
       </Tabs>
     );
   }

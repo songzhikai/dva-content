@@ -12,9 +12,9 @@ function RouterIndex({ history, app, location }) {
   return (
     <ConnectedRouter history={history}>
       <Switch>
-        <Route exact path="/" component={App} />
-        {/*<Route exact path="/" render={() => <Redirect to="/news/pages/index" push />} />*/}
-        {/*<Route path="/news/pages" component={Layout}/>*/}
+        {/*<Route exact path="/" component={App} />*/}
+        <Route exact path="/" render={() => <Redirect to="/cc/manager/poster" push />} />
+        <Route path="/cc" component={App}/>
       </Switch>
     </ConnectedRouter>
   );

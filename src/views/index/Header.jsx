@@ -17,8 +17,8 @@ class Header extends React.Component {
   }
   render(){
     return (
-      <div class={styles.headerStyle}>
-        <h2 class={styles.headerTitle}>内容中心</h2>
+      <div className={styles.headerStyle}>
+        <h2 className={styles.headerTitle}>内容中心</h2>
       </div>
     );
   }

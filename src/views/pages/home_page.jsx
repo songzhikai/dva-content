@@ -35,6 +35,8 @@ class HomePage extends React.Component {
     titleBarClick(){
       this.props.redirectToNewsDetail('/news/pages/detail');
     }
+    componentDidMount(){
+    }
     render() {
         return (
             <div>
