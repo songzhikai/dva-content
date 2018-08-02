@@ -1,24 +1,4 @@
-export const menus = [{
-      menuName: "海报",
-      key: 'poster',
-      sub:[
-        {
-          menuName:"海报管理",
-          path:"/cc/manager/poster",
-          key: 'posterManager',
-        },
-        {
-          menuName:"认领海报管理",
-          path:"/cc/manager/claimPoster",
-          key: 'claimPosterManager'
-        },
-        {
-          menuName:"海报模板管理",
-          path:"/cc/manager/posterTemplate",
-          key:'posterTemplateManager'
-        },
-      ]
-    },
+export const menus = [
     {
       menuName: "商品管理",
       key: 'productManager',
@@ -36,7 +16,6 @@ export const menus = [{
 
       ]
     },
-
     {
       menuName: "页面管理",
       path:"/cc/manager/page",
