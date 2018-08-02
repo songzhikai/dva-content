@@ -3,6 +3,7 @@ import { Switch, Route, routerRedux, Redirect } from 'dva/router';
 import dynamic from 'dva/dynamic';
 import paths from './paths';
 import Layout from '../components/layout/layout';
+import App from "../views/index/App";
 
 const { ConnectedRouter } = routerRedux;
 
@@ -11,8 +12,9 @@ function RouterIndex({ history, app, location }) {
   return (
     <ConnectedRouter history={history}>
       <Switch>
-        <Route exact path="/" render={() => <Redirect to="/news/pages/index" push />} />
-        <Route path="/news/pages" component={Layout}/>
+        <Route exact path="/" component={App} />
+        {/*<Route exact path="/" render={() => <Redirect to="/news/pages/index" push />} />*/}
+        {/*<Route path="/news/pages" component={Layout}/>*/}
       </Switch>
     </ConnectedRouter>
   );

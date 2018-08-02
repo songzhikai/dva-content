@@ -1,0 +1,13 @@
+ul li{
+  list-style-type:none;
+}
+.headerStyle{
+  background-color: #f5f7fa;
+  color: #333;
+  border-bottom: 1px solid #d9d9d9;
+  height: 50px;
+  text-align: left;
+  line-height: 49px;
+  font-size: 20px;
+  font-weight: bold;}
+.headerTitle{margin: 0;padding: 0;padding-left: 34px;font-size: 20px;color: #393534;font-weight: 700;}
