@@ -12,7 +12,7 @@ export default {
 
   // 异步操作
   effects: {
-    *tabClick({payload}, {put,call,select}){
+    *tabClickToChangeRouter({payload}, {put,call,select}){
       try{
         yield put(routerRedux.push({pathname:payload.key}));
       }catch(e){

@@ -38,7 +38,7 @@ class ContentTab extends React.Component {
   onChange = (activeKey) => {
     PubSub.publish('tabChange', {key: activeKey});
     this.props.setSelectedTab(activeKey);
-    this.props.tabClick(activeKey);
+    this.props.tabClickToChangeRouter(activeKey);
   }
 
   add = () => {
@@ -51,6 +51,17 @@ class ContentTab extends React.Component {
   onEdit = (targetKey, action) => {
     this[action](targetKey);
   }
+  stateFunc(a){
+    let res = [];
+    res.push(a);
+    console.log('activeKey', this.state.activeKey)
+    return res
+  }
+  setStateOpt(obj){ //setState是异步的
+    this.setState(obj,function(){
+      this.stateFunc(obj);
+    })
+  }
   remove = (targetKey) => {
     let newIndex = 0;
     let activeKey = this.state.activeKey;
@@ -62,30 +73,24 @@ class ContentTab extends React.Component {
     });
     if(newIndex == -1){
       if(this.props.tabs.length > 1){//还有tab
-        this.state.activeKey = this.props.tabs[1].key;
+        this.setState({ activeKey : this.props.tabs[1].key});
         this.props.setSelectedTab(this.state.activeKey);
       }else if(this.props.tabs.length == 1){
-        this.state.activeKey = '';
-        this.props.setSelectedTab(this.state.activeKey);
+        this.setState({ activeKey : ''});
+        this.props.setSelectedTab('');
+        this.props.tabClickToChangeRouter('/');
       }
     }else if(newIndex > -1){
       //改变当前的tab
-      this.state.activeKey = this.props.tabs[newIndex].key;
-      this.props.setSelectedTab(this.state.activeKey);
+      this.setState({ activeKey : this.props.tabs[newIndex].key});
+      this.props.setSelectedTab(this.props.tabs[newIndex].key);
+      //改变router
+      this.props.tabClickToChangeRouter(this.props.tabs[newIndex].key);
     }
     //改变当前的tabs
     let newTabs = this.props.tabs.filter(tab => tab.key !== targetKey)
     this.props.setTabs(newTabs);
 
-    //改变router
-    this.props.tabClick(this.state.activeKey);
-
-
-    // const panes = this.state.panes.filter(pane => pane.key !== targetKey);
-    // if (lastIndex >= 0 && activeKey === targetKey) {
-    //   activeKey = panes[lastIndex].key;
-    // }
-    this.setState({ activeKey });
   }
   render(){
     return(
@@ -111,8 +116,8 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-    tabClick: (activeKey) => {
-      dispatch({type: 'menuTabModel/tabClick', payload: { key: activeKey }})
+    tabClickToChangeRouter: (activeKey) => {
+      dispatch({type: 'menuTabModel/tabClickToChangeRouter', payload: { key: activeKey }})
     },
     setSelectedTab: (activeKey) => {
       dispatch({type: 'menuTabModel/setSelectedTab', payload: { key: activeKey}})
