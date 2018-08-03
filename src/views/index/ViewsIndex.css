@@ -7,6 +7,9 @@ body :global(.ant-menu-sub.ant-menu-inline) {
 body :global(.ant-menu-submenu .ant-menu) {
   background-color: #1d233d;
 }
+body :global(.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected){
+  background-color: #1d233d;
+}
 .leftSiderStyle, .menuStyle, .subMenuStyle{
   background-color: #1d233d;
 }
