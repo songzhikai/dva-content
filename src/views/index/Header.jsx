@@ -1,7 +1,5 @@
 import React from 'react';
 import {Layout, Menu, Breadcrumb, Icon, Row, Col } from 'antd';
-import { Router, Route, Switch, Redirect, Link} from 'dva/router';
-import PCBar from "../../components/layout/pc_bar";
 import ImgBroadcast from "../../components/pages/img_broadcast";
 import styles from './ViewsIndex.css';
 import {connect} from 'dva';

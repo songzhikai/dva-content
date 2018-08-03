@@ -2,7 +2,6 @@ import React from 'react';
 import { Switch, Route, routerRedux, Redirect } from 'dva/router';
 import dynamic from 'dva/dynamic';
 import paths from './paths';
-import Layout from '../components/layout/layout';
 import App from "../views/index/App";
 
 const { ConnectedRouter } = routerRedux;
@@ -12,7 +11,6 @@ function RouterIndex({ history, app, location }) {
   return (
     <ConnectedRouter history={history}>
       <Switch>
-        {/*<Route exact path="/" component={App} />*/}
         <Route exact path="/" render={() => <Redirect to="/cc/manager/productDetailTemplate" push />} />
         <Route path="/cc" component={App}/>
       </Switch>

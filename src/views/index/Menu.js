@@ -6,12 +6,12 @@ export const menus = [
         {
           menuName: "商品详情-模板管理",
           path:"/cc/manager/productDetailTemplate",
-          key: 'productDetailManager',
+          key: '/cc/manager/productDetailTemplate',
         },
         {
           menuName: "商品表单-模板管理",
           path:"/cc/manager/productFormTemplate",
-          key: 'productFormManager'
+          key: '/cc/manager/productFormTemplate'
         },
 
       ]
@@ -19,11 +19,11 @@ export const menus = [
     {
       menuName: "页面管理",
       path:"/cc/manager/page",
-      key: 'pageManager'
+      key: '/cc/manager/page'
     },
     {
       menuName: "资源管理",
       path:"/cc/manager/resource",
-      key: 'resourceManager'
+      key: '/cc/manager/resource'
     },
 ]
