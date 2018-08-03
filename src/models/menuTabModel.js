@@ -33,7 +33,7 @@ export default {
     routeChange(state, action){
       if(action.payload.pathname == '/'){
         state.selectedTab.key = '';
-        state.selectedTab.title = '';
+        // state.selectedTab.title = '';
         return {...state};
       }
       // 当前选中tab
@@ -45,7 +45,7 @@ export default {
           for(let key in sub){
             if(sub[key].key == action.payload.pathname){
               state.selectedTab.key = action.payload.pathname;
-              state.selectedTab.title = sub[key].menuName;
+              // state.selectedTab.title = sub[key].menuName;
 
               // 将路由放到tabs中
               for(let bkey in state.tabs){
@@ -69,7 +69,7 @@ export default {
         }
         if(flag == false && !menus[index].sub && !!menus[index].path && (menus[index].key == action.payload.pathname)){
           state.selectedTab.key = action.payload.pathname;
-          state.selectedTab.title = menus[index].menuName;
+          // state.selectedTab.title = menus[index].menuName;
           // 将路由放到tabs中
           for(let bkey in state.tabs){
             let tabs = state.tabs;
