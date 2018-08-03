@@ -42,10 +42,10 @@ class ContentTab extends React.Component {
   }
 
   add = () => {
-    const panes = this.state.panes;
-    const activeKey = `newTab${this.newTabIndex++}`;
-    panes.push({ title: 'New Tab', content: 'Content of new Tab', key: activeKey });
-    this.setState({ panes, activeKey });
+    // const panes = this.state.panes;
+    // const activeKey = `newTab${this.newTabIndex++}`;
+    // panes.push({ title: 'New Tab', content: 'Content of new Tab', key: activeKey });
+    // this.setState({ panes, activeKey });
   }
 
   onEdit = (targetKey, action) => {
@@ -64,7 +64,6 @@ class ContentTab extends React.Component {
   }
   remove = (targetKey) => {
     let newIndex = 0;
-    let activeKey = this.state.activeKey;
     this.props.tabs.forEach((tab, i) => {
       if (tab.key === targetKey) {
         newIndex = i - 1;
@@ -74,7 +73,7 @@ class ContentTab extends React.Component {
     if(newIndex == -1){
       if(this.props.tabs.length > 1){//还有tab
         this.setState({ activeKey : this.props.tabs[1].key});
-        this.props.setSelectedTab(this.state.activeKey);
+        this.props.setSelectedTab(this.props.tabs[1].key);
       }else if(this.props.tabs.length == 1){
         this.setState({ activeKey : ''});
         this.props.setSelectedTab('');

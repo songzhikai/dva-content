@@ -34,7 +34,7 @@ export default {
       state.tabs = payload.tabs;
       return {...state};
     },
-    routeChange(state, action){
+    routerChange(state, action){
       if(action.payload.pathname == '/'){
         state.selectedTab.key = '';
         // state.selectedTab.title = '';
@@ -96,7 +96,7 @@ export default {
     setup({ dispatch, history }) {
       history.listen((location) => {
         dispatch({
-          type:'routeChange',
+          type:'routerChange',
           payload: {pathname: location.pathname}
         });
 
