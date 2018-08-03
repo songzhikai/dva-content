@@ -52,18 +52,40 @@ class ContentTab extends React.Component {
     this[action](targetKey);
   }
   remove = (targetKey) => {
+    let newIndex = 0;
     let activeKey = this.state.activeKey;
-    let lastIndex;
-    // this.state.panes.forEach((pane, i) => {
-    //   if (pane.key === targetKey) {
-    //     lastIndex = i - 1;
-    //   }
-    // });
+    this.props.tabs.forEach((tab, i) => {
+      if (tab.key === targetKey) {
+        newIndex = i - 1;
+        return false;
+      }
+    });
+    if(newIndex == -1){
+      if(this.props.tabs.length > 1){//还有tab
+        this.state.activeKey = this.props.tabs[1].key;
+        this.props.setSelectedTab(this.state.activeKey);
+      }else if(this.props.tabs.length == 1){
+        this.state.activeKey = '';
+        this.props.setSelectedTab(this.state.activeKey);
+      }
+    }else if(newIndex > -1){
+      //改变当前的tab
+      this.state.activeKey = this.props.tabs[newIndex].key;
+      this.props.setSelectedTab(this.state.activeKey);
+    }
+    //改变当前的tabs
+    let newTabs = this.props.tabs.filter(tab => tab.key !== targetKey)
+    this.props.setTabs(newTabs);
+
+    //改变router
+    this.props.tabClick(this.state.activeKey);
+
+
     // const panes = this.state.panes.filter(pane => pane.key !== targetKey);
     // if (lastIndex >= 0 && activeKey === targetKey) {
     //   activeKey = panes[lastIndex].key;
     // }
-    // this.setState({ panes, activeKey });
+    this.setState({ activeKey });
   }
   render(){
     return(
@@ -94,6 +116,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     setSelectedTab: (activeKey) => {
       dispatch({type: 'menuTabModel/setSelectedTab', payload: { key: activeKey}})
+    },
+    setTabs: (tabs) => {
+      dispatch({type: 'menuTabModel/setTabs', payload: { tabs}})
     },
 
   }

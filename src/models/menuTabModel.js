@@ -30,6 +30,10 @@ export default {
       state.selectedTab.key = payload.key;
       return {...state};
     },
+    setTabs(state, {payload}){
+      state.tabs = payload.tabs;
+      return {...state};
+    },
     routeChange(state, action){
       if(action.payload.pathname == '/'){
         state.selectedTab.key = '';
