@@ -6,15 +6,18 @@ import PubSub from 'pubsub-js';
 export default {
   namespace: 'menuTabModel',
   state: {
-    selectedTab:{key: '', title:''}, //当前选中的tab
+    selectedTab:{}, //当前选中的tab
     tabs: [], //已经缓存起来的tab数组
   },
 
   // 异步操作
   effects: {
-    *changeTab({payload}, {put,call,select}){
-      console.log(payload.key);
-      // yield put(routerRedux.push(payload.key));
+    *tabClick({payload}, {put,call,select}){
+      try{
+        yield put(routerRedux.push({pathname:payload.key}));
+      }catch(e){
+        e.message;
+      }
     },
     *create(){},
     *'delete'(){},   // 因为delete是关键字，特殊处理

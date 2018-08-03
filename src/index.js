@@ -2,7 +2,11 @@ import dva from 'dva';
 import 'antd/dist/antd.css';
 
 // 1. Initialize
-const app = dva();
+const app = dva({
+  onError(e, dispatch) {
+    console.log('>>>>>>>>>>>>>error', e.message);
+  },
+});
 
 // 2. Plugins
 // app.use({});

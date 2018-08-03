@@ -8,7 +8,6 @@ const SubMenu = Menu.SubMenu;
 class SiderMenu extends React.Component {
 
     handleClick = (e) => {
-        // console.log('click ', e);
     }
     renderMenu(obj){ //叶子节点
         return (

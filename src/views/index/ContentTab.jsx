@@ -21,6 +21,7 @@ class ContentTab extends React.Component {
     }
   }
   componentDidMount(){
+    console.log('tabs', this.props.tabs);
     this.setState({
       activeKey: this.props.selectedTab.key
     });
@@ -37,7 +38,7 @@ class ContentTab extends React.Component {
   onChange = (activeKey) => {
     PubSub.publish('tabChange', {key: activeKey});
     this.props.setSelectedTab(activeKey);
-    this.props.changeTab(activeKey);
+    this.props.tabClick(activeKey);
   }
 
   add = () => {
@@ -66,15 +67,17 @@ class ContentTab extends React.Component {
   }
   render(){
     return(
-      <Tabs
-        onChange={this.onChange}
-        activeKey={this.state.activeKey}
-        type="editable-card"
-        onEdit={this.onEdit}
-      >
-        {this.props.tabs.map(tab => <TabPane tab={tab.title} key={tab.key}><Routes/></TabPane>)}
-
-      </Tabs>
+      <div>
+        <Tabs
+          onChange={this.onChange}
+          activeKey={this.state.activeKey}
+          type="editable-card"
+          onEdit={this.onEdit}
+        >
+          {this.props.tabs.map(tab => <TabPane tab={tab.title} key={tab.key}></TabPane>)}
+        </Tabs>
+        <Routes/>
+      </div>
     );
   }
 }
@@ -86,8 +89,8 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-    changeTab: (activeKey) => {
-      dispatch({type: 'menuTabModel/changeTab', payload: { key: activeKey }})
+    tabClick: (activeKey) => {
+      dispatch({type: 'menuTabModel/tabClick', payload: { key: activeKey }})
     },
     setSelectedTab: (activeKey) => {
       dispatch({type: 'menuTabModel/setSelectedTab', payload: { key: activeKey}})

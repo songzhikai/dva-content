@@ -30,11 +30,8 @@ class HomePage extends React.Component {
         });
     }
     titleBarClick(){
-      this.props.redirectToNewsDetail('/news/pages/detail');
     }
     componentWillMount(){
-      //tab切换
-      this.props.changeTab(this.props.location.pathname);
     }
     componentDidMount(){
     }
@@ -81,10 +78,6 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-    changeTab: (currentSelectedTab) => {
-      dispatch({type: 'menuTabModel/changeTab', payload: { currentSelectedTab: currentSelectedTab }})
-    },
-
   }
 }
 

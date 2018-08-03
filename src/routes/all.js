@@ -13,7 +13,7 @@ function RouterAll({ history, app, location }) {
                 key={path}
                 exact
                 path={path}
-                component={dynamic({ app, ...dynamics })}
+              component={dynamic({ app, ...dynamics })}
               />
             ))
           }
