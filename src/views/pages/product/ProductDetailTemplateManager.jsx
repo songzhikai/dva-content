@@ -1,13 +1,13 @@
 import React from 'react';
 import {Menu, Icon, Row, Col } from 'antd';
 import { Router, Route, Switch, Redirect, Link} from 'dva/router';
-import ImgBroadcast from "../../components/pages/img_broadcast";
-import styles from './views_pages.css';
+import ImgBroadcast from "../../../components/pages/img_broadcast";
+import styles from '../views_pages.css';
 import {connect} from 'dva';
 
 const MenuItem = Menu.Item;
 
-class HomePage extends React.Component {
+class ProductDetailTemplateManager extends React.Component {
     constructor(){
         super();
         this.handleClick = this.handleClick.bind(this);
@@ -81,4 +81,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
+export default connect(mapStateToProps, mapDispatchToProps)(ProductDetailTemplateManager);
